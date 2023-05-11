@@ -1,0 +1,44 @@
+1) Create an MVC Project .Net Core 
+
+Project Management System
+
+We have Project Detail as below.
+
+We have display list as below column.
+
+1) Project Name
+2) Project Detail
+3) Deadline Date
+4) No of Employee
+5) List of Employee - Click on Display assign Employee List
+6) Project Manager Name - 
+
+We have assing user to Particular Project.
+
+Note : We have assign multiple Developer but only one project manager per project.
+
+We have employee detail as below.
+
+1) Name
+2) Employee Code
+3) Joining Date
+4) Employee Type
+
+Type of employee - Static Data
+
+1) Project Manager
+2) Team Lead
+3 )Developer
+
+Implement below functionality
+
+1) Search 
+2) Pagging
+3) Sorting
+4) Export
+
+
+Please Import Excel file functionality and Insert Data in Database.
+
+ 
+********************************  All The Best  ********************************
