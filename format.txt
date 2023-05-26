@@ -1,0 +1,104 @@
+//http://localhost:7106/api/AddAddress
+
+{
+    "HouseNo": "A-505",
+    "Country":"India",
+    "State":"Guj",
+     "City":"Ahmedabad",
+     "ZipCode":"380007",
+     "ContactPerson":"PersonG",
+     "ContactNo":"7744112255",
+     "userId" : "811acb36-5978-4445-89b0-d0df618a8b75",
+    "AddressType":"Shipping",
+    "ContactEmail": "abc@gmail.com"
+}
+
+//http://localhost:7106/api/GetAddressList?email=Parshav@gmail.com
+
+email  Parshav@gmail.com
+
+//http://localhost:7106/api/UpdateOrderStatus?orderId=25&status=3
+
+orderId  25
+status  3
+
+//http://localhost:7106/api/DraftOrder
+
+{
+    "Products":[
+        {
+        "ProductId":3,
+        "ProductQty":2
+        },
+        {
+        "ProductId":4,
+        "ProductQty":1
+        }],
+    "BillingAddress":{
+        "HouseNo":"A-22",
+        "Country":"India",
+        "State":"Guj",
+        "City":"Ahmedabad",
+        "ZipCode":380017,
+        "ContactPerson":"ZZZ",
+        "ContactNo":"7410258963",
+        "AddressType":1,
+        "ContactEmail":"ZZZ@gmail.com"
+    },
+    "ShippingAddress":{
+        "HouseNo":"A-666",
+        "Country":"India",
+        "State":"Goa",
+        "City":"Panji",
+        "ZipCode":380007,
+        "ContactPerson":"QQQ",
+        "ContactNo":"9632587410",
+        "AddressType":2,
+        "ContactEmail":"QQQ@gmail.com"
+    },
+    "Note":"Hello",
+    "DisountAmount":20,
+    "StatusType":2,
+    "IsActive":1
+}
+
+//http://localhost:7106/api/UpdateOrderAddress
+
+{
+    "OrderAddressId":"5",
+    "AddressChangeType":"2",
+    "Address":{
+        "HouseNo":"A-6",
+        "Country":"India",
+        "State":"Gujarat",
+        "City":"Ahmedabad",
+        "ZipCode":380007,
+        "ContactPerson":"ZZZ",
+        "ContactNo":"9428012167",
+        "AddressType":2,
+        "ContactEmail":"ZZZ@gmail.com"
+    }
+}
+
+//http://localhost:7106/api/GetOrders
+
+{
+    "fromDate":"2023-03-12T00:00:00.000",
+    "toDate":"2023-03-15T00:00:00.000",
+    "statusType":1,
+    "customerName":"",
+    "customerEmail":"",
+    "isActive":0,
+    "productId":1
+}
+
+or
+{
+    "fromDate":"2023-03-12T00:00:00.000",
+    "toDate":"2023-03-15T00:00:00.000",
+    "statusType":1,
+    "customerName":"",
+    "customerEmail":"",
+    "isActive":0,
+    "productId":1
+}
