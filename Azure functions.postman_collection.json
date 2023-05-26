@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "7892712b-d702-4f22-8e27-1ddbbc7dfaa8",
+		"name": "Azure functions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:7200/api/GetAddressList?email=Jainam@gmail.com",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7200/api/GetAddressList?email=Jainam@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7200",
+					"path": [
+						"api",
+						"GetAddressList"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "Jainam@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:7200/api/AddAddress",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"HouseNo\":\"A-222\",\r\n    \"Country\":\"Canada\",\r\n    \"State\":\"Ontario\",\r\n    \"City\":\"Wan cuver\",\r\n    \"ZipCode\":\"380001\",\r\n    \"ContactPerson\":\"JV\",\r\n    \"ContactNo\":\"111222333\",\r\n    \"AddressType\":1,\r\n    \"ContactEmail\":\"abc@gmail.com\",\r\n    \"userId\":\"811acb36-5978-4445-89b0-d0df618a8b75\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7200/api/AddAddress",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7200",
+					"path": [
+						"api",
+						"AddAddress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:7200/api/UpdateOrderStatus?status=2&orderId=19",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7200/api/UpdateOrderStatus?status=2&orderId=19",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7200",
+					"path": [
+						"api",
+						"UpdateOrderStatus"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "2"
+						},
+						{
+							"key": "orderId",
+							"value": "19"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:7200/api/getOrders",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fromDate\":\"2023-03-12T00:00:00.000\",\r\n    \"toDate\":\"2023-03-15T00:00:00.000\",\r\n    \"statusType\":1,\r\n    \"customerName\":\"\",\r\n    \"customerEmail\":\"\",\r\n    \"isActive\":0,\r\n    \"productId\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7200/api/getOrders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7200",
+					"path": [
+						"api",
+						"getOrders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": " http://localhost:7200/api/UpdateOrderAddress",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"OrderAddressId\":\"2\",\r\n    \"AddressChangeType\":\"1\",\r\n    \"Address\":{\r\n        \"HouseNo\":\"A-666\",\r\n        \"Country\":\"India\",\r\n        \"State\":\"Gujarat\",\r\n        \"City\":\"Ahmedabad\",\r\n        \"ZipCode\":380007,\r\n        \"ContactPerson\":\"jainam\",\r\n        \"ContactNo\":\"9428012167\",\r\n        \"AddressType\":1,\r\n        \"ContactEmail\":\"asd1@gmail.com\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7200/api/UpdateOrderAddress",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7200",
+					"path": [
+						"api",
+						"UpdateOrderAddress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": " http://localhost:7200/api/DraftOrder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Products\":[\r\n        {\r\n        \"ProductId\":3,\r\n        \"ProductQty\":2\r\n        },\r\n        {\r\n        \"ProductId\":1,\r\n        \"ProductQty\":1\r\n        }],\r\n    \"BillingAddress\":{\r\n        \"HouseNo\":\"A-999\",\r\n        \"Country\":\"India\",\r\n        \"State\":\"Goa\",\r\n        \"City\":\"Panji\",\r\n        \"ZipCode\":380007,\r\n        \"ContactPerson\":\"jainam\",\r\n        \"ContactNo\":\"9428012167\",\r\n        \"AddressType\":1,\r\n        \"ContactEmail\":\"aaa@gmail.com\"\r\n    },\r\n    \"ShippingAddress\":{\r\n        \"HouseNo\":\"A-666\",\r\n        \"Country\":\"India\",\r\n        \"State\":\"Goa\",\r\n        \"City\":\"Panji\",\r\n        \"ZipCode\":380007,\r\n        \"ContactPerson\":\"jainam\",\r\n        \"ContactNo\":\"9428012167\",\r\n        \"AddressType\":2,\r\n        \"ContactEmail\":\"aaa@gmail.com\"\r\n    },\r\n    \"Note\":\"aaa\",\r\n    \"DisountAmount\":11,\r\n    \"StatusType\":1,\r\n    \"IsActive\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7200/api/DraftOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7200",
+					"path": [
+						"api",
+						"DraftOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:7200/api/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"UserName\": \"jainam\",\r\n  \"Password\": \"Jainam@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7200/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7200",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:7200/api/GetAllProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7200/api/GetAllProducts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7200",
+					"path": [
+						"api",
+						"GetAllProducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:7200/api/ProductbyId?productId=3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7200/api/ProductbyId?productId=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7200",
+					"path": [
+						"api",
+						"ProductbyId"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
