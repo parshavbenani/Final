@@ -1,0 +1,537 @@
+class CoffeeType
+{
+    public string CId { get; set; }
+    public string CName { get; set; }
+    public string CDescription { get; set; }
+    public string CPrice { get; set; }
+}
+----------------------------------
+<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CoffeShopApp.MainPage"
+             BackgroundColor="{StaticResource Orange}"
+             Shell.NavBarIsVisible="False">
+
+    <FlyoutPage.Flyout>
+        <ContentPage Title="Master Page">
+            <StackLayout>
+                <Label Text="Coffee Shop"
+                       FontFamily="OpenSansRegular"
+                       TextColor="White"
+                       HorizontalTextAlignment="Center"
+                       FontSize="25"
+                       VerticalTextAlignment="Start"
+                       TextDecorations="Underline"/>
+                <Label />
+                <BoxView HeightRequest="2" Color="{StaticResource Orange}" />
+                <Button Text="Add New Coffee"
+                        TextColor="White"
+                        FontSize="18"
+                        FontFamily="OpenSansRegular"
+                        HorizontalOptions="Start"                     
+                        BackgroundColor="{StaticResource BGGray}"
+                        Clicked="Button_Clicked_2"/>
+            </StackLayout>
+            
+        </ContentPage>
+    </FlyoutPage.Flyout>
+    <FlyoutPage.Detail>
+        <ContentPage>
+           <ScrollView>
+            <Grid Margin="15" RowDefinitions=".4*,.1*,.1*,.4*">
+                <Border Grid.RowSpan="2">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20,20,20,20" />
+                    </Border.StrokeShape>
+                    <Grid RowDefinitions=".3*,.7*" >
+                        <Image Grid.RowSpan="2"
+                   Aspect="AspectFill"
+                   Source="cup" />
+                        <Grid ColumnDefinitions="*,*">
+                            <Border Margin="15,35,0,0"
+                        BackgroundColor="{StaticResource DarkGray}"
+                        HeightRequest="50"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Start"
+                        WidthRequest="50" >
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10,10,10,10" />
+                                </Border.StrokeShape>
+                                <Label FontFamily="Icons"
+                           FontSize="25"
+                           HorizontalOptions="Center"
+                           Text="&#xE801;"
+                           TextColor="{StaticResource LightGray}"
+                           VerticalOptions="Center" />
+                            </Border>
+                            <Border Grid.Column="1"
+                        Margin="0,35,15,0"
+                        BackgroundColor="{StaticResource DarkGray}"
+                        HeightRequest="50"
+                        HorizontalOptions="End"
+                        VerticalOptions="Start"
+                        WidthRequest="50" >
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10,10,10,10" />
+                                </Border.StrokeShape>
+                                <Grid ColumnDefinitions=".5*,.5*">
+                                    <Label Grid.Column="0"
+                               FontFamily="Icons"
+                               FontSize="20"
+                               HorizontalOptions="Center"
+                               Text="&#xE804;"                             
+                               TextColor="{StaticResource LightGray}"
+                               VerticalOptions="Center"
+                               />
+                                    <Label Grid.Column="1"
+                               FontSize="18"
+                               HorizontalOptions="Center"
+                               Text="0"
+                               x:Name="lblone"
+                               TextColor="{StaticResource LightGray}"
+                               VerticalOptions="Center" />
+                                </Grid>
+
+
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="1"
+            Grid.RowSpan="2"
+            Stroke="{StaticResource DarkGray}" >
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="30,30,30,30" />
+                    </Border.StrokeShape>
+
+                    <Grid Padding="20"
+              BackgroundColor="{StaticResource DarkGray}"
+              ColumnDefinitions=".5*,.25*,.25*"
+              RowDefinitions="*,*,*">
+
+                        <Label Grid.ColumnSpan="2"
+                   FontAttributes="Bold"
+                   FontFamily="OpenSansRegular"
+                   FontSize="20"
+                   Text="Espresso Cappuccino"
+                   x:Name="PNamelbl"
+                   TextColor="White" />
+
+                        <Label Grid.Column="2"
+                   FontAttributes="Bold"
+                   FontFamily="OpenSansRegular"
+                   FontSize="20"
+                   HorizontalTextAlignment="Center"
+                   Text="$50"
+                   x:Name="PPricelbl"
+                   TextColor="{StaticResource Brown}" />
+
+                        <Label Grid.Row="1"
+                   
+                   FontFamily="OpenSansSemibold"
+                   FontSize="15"
+                   Text="DeCafe Pike"
+                   TextColor="White" />
+                        <!--Grid.Column="2"-->
+
+                        <HorizontalStackLayout Grid.Row="2" Spacing="10">
+                            <Label FontFamily="Icons"
+                       FontSize="20"
+                       HorizontalOptions="Center"
+                       Text="&#xE802;"
+                       TextColor="{StaticResource Orange}"
+                       VerticalOptions="Center" />
+                            <Label FontAttributes="Bold"
+                       FontFamily="OpenSansRegular"
+                       FontSize="15"
+                       Text="4.5"
+                       TextColor="White"
+                       VerticalOptions="Center" />
+                            <Label FontFamily="OpenSansRegular"
+                       FontSize="15"
+                       Text="(4,4461)"
+                       TextColor="{StaticResource LightGray}"
+                       VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+
+                        <Button Grid.Row="2"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="{StaticResource Orange}"
+                    FontFamily="OpenSansRegular"
+                    FontSize="18"
+                    Text="Add to Cart"
+                    Clicked="Button_Clicked"/>
+
+                    </Grid>
+
+                </Border>
+
+                <Grid Grid.Row="3" RowDefinitions=".4*,.4*,.2*" >
+                    <VerticalStackLayout Margin="0,20,0,0" Spacing="10">
+                        <Label FontFamily="OpenSansRegular"
+                      FontSize="16"
+                      Text="Description"
+                      TextColor="#D9DADA" />
+                        <Label FontSize="14" LineHeight="1.3">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span FontFamily="OpenSansRegular"
+                              Text="Espressp is made by forcing very hot water under high pressure through finely ground compacted coffee.Tamping down the lorem ipsum."
+                              TextColor="{StaticResource LightGray}" />
+
+                                    <Span FontFamily="OpenSansRegular"
+                              Text="... Read More"
+                              TextColor="{StaticResource Brown}" />
+
+                                </FormattedString>
+
+                            </Label.FormattedText>
+                        </Label>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Row="1" Margin="0,20,0,0" Spacing="10">
+                        <Label Text="Size" TextColor="White" />
+
+                        <HorizontalStackLayout RadioButtonGroup.GroupName="MenuCategories"
+                                   Spacing="10"
+                                   VerticalOptions="Center">
+                            <BindableLayout.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Small</x:String>
+                                    <x:String>Medium</x:String>
+                                    <x:String>Large</x:String>
+                                </x:Array>
+                            </BindableLayout.ItemsSource>
+
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <RadioButton Content="{Binding .}" >
+                                        <RadioButton.ControlTemplate>
+                                            <ControlTemplate>
+                                                <Grid>
+                                                    <Border x:Name="Container"
+                                            Stroke="{StaticResource BGGray}"
+                                            WidthRequest="100">
+                                                        <Border.StrokeShape>
+                                                            <RoundRectangle CornerRadius="10,10,10,10" />
+                                                        </Border.StrokeShape>
+                                                        <Label x:Name="TextLabel"
+                                               HorizontalOptions="Center"
+                                               Text="{TemplateBinding Content}"
+                                               VerticalOptions="Center" />
+                                                    </Border>
+
+                                                    <VisualStateManager.VisualStateGroups>
+                                                        <VisualStateGroupList>
+                                                            <VisualStateGroup x:Name="CheckedStates">
+                                                                <VisualState x:Name="Checked">
+                                                                    <VisualState.Setters>
+                                                                        <Setter TargetName="TextLabel" Property="Label.TextColor" Value="{StaticResource Brown}" />
+                                                                        <Setter TargetName="Container" Property="Border.BackgroundColor" Value="{StaticResource BGGray}" />
+                                                                        <Setter TargetName="Container" Property="Border.Stroke" Value="{StaticResource Brown}" />
+                                                                    </VisualState.Setters>
+                                                                </VisualState>
+                                                                <VisualState x:Name="Unchecked">
+                                                                    <VisualState.Setters>
+                                                                        <Setter TargetName="TextLabel" Property="Label.TextColor" Value="{StaticResource LightGray}" />
+                                                                        <Setter TargetName="Container" Property="Border.BackgroundColor" Value="{StaticResource DarkGray}" />
+                                                                        <Setter TargetName="Container" Property="Border.Stroke" Value="{StaticResource DarkGray}" />
+                                                                    </VisualState.Setters>
+                                                                </VisualState>
+                                                            </VisualStateGroup>
+                                                        </VisualStateGroupList>
+                                                    </VisualStateManager.VisualStateGroups>
+
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </RadioButton.ControlTemplate>
+                                    </RadioButton>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+
+                    <Button Grid.Row="2"
+                BackgroundColor="{StaticResource Brown}"
+                FontFamily="OpenSansRegular"
+                Text="Buy Now"
+                Clicked="Button_Clicked_1"/>
+
+                </Grid>
+
+            </Grid>
+          </ScrollView>
+        </ContentPage>
+    </FlyoutPage.Detail>
+
+
+    
+</FlyoutPage>
+------------------------------------------
+ int count = 0;
+
+ ObservableCollection<Products> product = new ObservableCollection<Products>();
+
+ public MainPage()
+ {
+     InitializeComponent();
+     BackgroundColor = Colors.Blue;
+ }
+
+ private void Button_Clicked(object sender, EventArgs e)
+ {
+
+     if (product.Count >= 0)
+     {
+         product.Add(new Products { PId = Guid.NewGuid().ToString() , PImage = "cup.png", PName = $"{PNamelbl.Text}", PPrice = $"{PPricelbl.Text}" });
+     }
+
+     product.ToList();
+
+     lblone.Text = product.Count.ToString();
+
+     SemanticScreenReader.Announce(lblone.Text);
+ }
+
+ private void Button_Clicked_1(object sender, EventArgs e)
+ {
+     string ProductList = JsonConvert.SerializeObject(product);
+     Preferences.Set("product", ProductList);
+
+     Navigation.PushAsync(new CartPage());
+ }
+
+ private void Button_Clicked_2(object sender, EventArgs e)
+ {
+     Navigation.PushAsync(new CoffeePage());
+ }
+------------------------------------------------------
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CoffeShopApp.CartPage"
+             Title="CartPage"
+             BackgroundColor="{StaticResource BGGray}">
+    <ScrollView>
+        <CollectionView x:Name="collectionviewlist">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.LeftItems>
+                            <SwipeItems>
+                                <SwipeItem BackgroundColor="{StaticResource Brown}"
+                                           IconImageSource="dotnet_bot"
+                                           Invoked="SwipeItem_Invoked"
+                                           Command="{Binding CommandClick}"
+                                           Text="Delete"/>
+                            </SwipeItems>
+                        </SwipeView.LeftItems>
+                    
+                    <Frame Margin="20,20,20,20"
+                           x:Name="frameid"                         
+                           BorderColor="{StaticResource Orange}"
+                           BackgroundColor="{StaticResource DarkGray}">
+                        <Grid ColumnDefinitions="4*,2*,4*"
+                              RowDefinitions="*,*"
+                              ColumnSpacing="3">                           
+                            <Image Source="cup"
+                                   Grid.RowSpan="3"
+                                   Grid.Row="0"
+                                   Grid.Column="0" />
+                            <Label Grid.Row="0"
+                                   Grid.Column="1"
+                                   Grid.ColumnSpan="2"
+                                   Text="{Binding CName}"
+                                   x:Name="namelbl"
+                                   TextColor="White"
+                                   FontSize="18"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Start"
+                                   FontFamily="OpenSansRegular" />
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding CDescription}"
+                                   TextColor="White"
+                                   FontSize="18"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   FontFamily="OpenSansRegular" />
+                            <Button Grid.Row="1"
+                                   Grid.Column="2"
+                                   x:Name="RemoveBtn"
+                                   Text="{Binding CPrice}"
+                                   Clicked="RemoveBtn_Clicked"
+                                        
+                                   BackgroundColor="{StaticResource Orange}"/>
+                            </Grid>
+                     </Frame>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
+</ContentPage>
+-----------------------------------------
+ string Cartlist = Preferences.Get("product", "newDefaultValue");
+
+ ObservableCollection<Products> cartitemlist = new ObservableCollection<Products>();
+
+ public CartPage()
+	{
+		InitializeComponent();
+
+     cartitemlist = JsonConvert.DeserializeObject<ObservableCollection<Products>>(Cartlist);    
+
+     collectionviewlist.ItemsSource = cartitemlist;
+    
+ }
+
+ private void SwipeItem_Invoked(object sender, EventArgs e)
+ {
+     DisplayAlert("Alert", "Are You Sure To Delete This item", "Ok");
+     cartitemlist.ToList();
+
+    // object value = cartitemlist.FirstOrDefault(x => x.PName == namelbl.Text);
+   // cartitemlist.Remove((Products)value);
+     
+ }
+
+ private void RemoveBtn_Clicked(object sender, EventArgs e)
+ {
+
+     string id = (sender as Button).Text;
+     cartitemlist.Remove(cartitemlist.SingleOrDefault(x => x.PId == id));
+ }
+------------------------------------
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CoffeShopApp.CoffeePage"
+             Title="CoffeePage"
+             xmlns:Model="clr-namespace:CoffeShopApp.Models">
+    <Grid RowDefinitions="auto,auto" >
+        <Border Stroke="{StaticResource Orange}"
+                StrokeThickness="2">
+            <Grid RowDefinitions="auto,auto,auto,auto,5*"
+                  ColumnDefinitions=".3*,.4*,.3*"
+                  RowSpacing="15"
+                  Padding="10">
+                <Entry Grid.Row="0"
+                       Grid.ColumnSpan="3"
+                       Text="{Binding PName}"
+                       x:Name="Name"
+                       Placeholder="Enter Name"
+                       FontSize="18"
+                       BackgroundColor="White"/>
+                <Entry Grid.Row="1"
+                       Grid.ColumnSpan="3"
+                       x:Name="Description"
+                       Text="{Binding PDescription}"
+                       Placeholder="Enter Description"
+                       FontSize="18" 
+                       BackgroundColor="White"/>
+                <Entry Grid.Row="2"
+                       Grid.ColumnSpan="3"
+                       x:Name="Price"
+                       Text="{Binding PPrice}"
+                       Placeholder="Enter Amount"
+                       FontSize="18"               
+                       Keyboard="Numeric"
+                       BackgroundColor="White"/>
+                <Button Grid.Row="3"
+                        Grid.Column="1"
+                        Text="Add Coffee"
+                        FontSize="18"
+                        Clicked="Button_Clicked"
+                        BackgroundColor="{StaticResource Brown}"
+                        TextColor="White" />
+            </Grid>
+        </Border>
+        <ScrollView Grid.Row="1">
+            <CollectionView x:Name="collectionviewlist" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.LeftItems>
+                                <SwipeItems>
+                                    <SwipeItem BackgroundColor="{StaticResource Brown}"
+                                       IconImageSource="dotnet_bot"
+                                       
+                                       Text="Delete"/>
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+
+                            <Frame Margin="20,20,20,20"
+                       x:Name="frameid"                         
+                       BorderColor="{StaticResource Orange}"
+                       BackgroundColor="{StaticResource DarkGray}">
+                                <Grid ColumnDefinitions="4*,2*,4*"
+                          RowDefinitions="*,*"
+                          ColumnSpacing="3">
+                                    <Image Source="{Binding PImage}"
+                               Grid.RowSpan="3"
+                               Grid.Row="0"
+                               Grid.Column="0" />
+                                    <Label Grid.Row="0"
+                               Grid.Column="1"
+                               Grid.ColumnSpan="2"
+                               Text="{Binding PName}"
+                               x:Name="namelbl"
+                               TextColor="White"
+                               FontSize="18"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Start"
+                               FontFamily="OpenSansRegular" />
+                                    <Label Grid.Row="1"
+                               Grid.Column="1"
+                               Text="{Binding PPrice}"
+                               TextColor="White"
+                               FontSize="18"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontFamily="OpenSansRegular" />
+                                    <Button Grid.Row="1"
+                               Grid.Column="2"
+                               x:Name="RemoveBtn"
+                               Text="{Binding PId}"
+                               
+                                    
+                               BackgroundColor="{StaticResource Orange}"/>
+                                </Grid>
+                            </Frame>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+
+    </Grid>
+    
+</ContentPage>
+-------------------------------------------
+ObservableCollection<CoffeeType> coffeeTypes = new ObservableCollection<CoffeeType>();
+public CoffeePage()
+{
+	InitializeComponent();
+    collectionviewlist.ItemsSource = coffeeTypes;
+
+}
+
+private void Button_Clicked(object sender, EventArgs e)
+{
+ CoffeeType coffee = new CoffeeType()
+ { 
+   CId = Guid.NewGuid().ToString(),
+   CName = Name.Text,
+   CDescription = Description.Text,
+   CPrice = Price.Text
+ };
+
+    coffeeTypes.Add(coffee);
+
+}
